@@ -66,6 +66,11 @@
       <version>${avro.version}</version>
     </dependency>
     <dependency>
+      <groupId>com.linkedin.avroutil1</groupId>
+      <artifactId>helper-all</artifactId>
+      <version>${avroHelper.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.thrift</groupId>
       <artifactId>libthrift</artifactId>
       <version>${libthrift.version}</version>

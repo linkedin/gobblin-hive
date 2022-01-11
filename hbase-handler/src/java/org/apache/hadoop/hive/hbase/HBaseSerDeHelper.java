@@ -19,6 +19,8 @@ package org.apache.hadoop.hive.hbase;
 
 import static org.apache.hadoop.hive.hbase.HBaseSerDeParameters.AVRO_SERIALIZATION_TYPE;
 
+import com.linkedin.avroutil1.compatibility.AvroCompatibilityHelper;
+import com.linkedin.avroutil1.compatibility.SchemaParseConfiguration;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -359,7 +361,7 @@ public class HBaseSerDeHelper {
     try {
       fs = FileSystem.get(new URI(schemaFSUrl), conf);
       in = fs.open(new Path(schemaFSUrl));
-      Schema s = Schema.parse(in);
+      Schema s = AvroCompatibilityHelper.parse(in, SchemaParseConfiguration.LOOSE, null).getMainSchema();
       return s;
     } catch (URISyntaxException e) {
       throw new SerDeException("Failure reading schema from filesystem", e);
@@ -468,7 +470,7 @@ public class HBaseSerDeHelper {
    * */
   private static void generateAvroStructFromSchema(String schemaLiteral, StringBuilder sb)
       throws SerDeException {
-    Schema schema = Schema.parse(schemaLiteral);
+    Schema schema = AvroCompatibilityHelper.parse(schemaLiteral);
 
     generateAvroStructFromSchema(schema, sb);
   }
