@@ -17,7 +17,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.apache.hive</groupId>
+    <groupId>com.linkedin.hive</groupId>
     <artifactId>hive</artifactId>
     <version>1.0.1</version>
     <relativePath>../pom.xml</relativePath>
@@ -35,33 +35,33 @@
     <!-- dependencies are always listed in sorted order by groupId, artifectId -->
     <!-- intra-project -->
     <dependency>
-      <groupId>org.apache.hive</groupId>
+      <groupId>com.linkedin.hive</groupId>
       <artifactId>hive-common</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.hive</groupId>
+      <groupId>com.linkedin.hive</groupId>
       <artifactId>hive-service</artifactId>
       <version>${project.version}</version>
       <exclusions>
         <exclusion>
-          <groupId>org.apache.hive</groupId>
+          <groupId>com.linkedin.hive</groupId>
             <artifactId>hive-exec</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.apache.hive</groupId>
+      <groupId>com.linkedin.hive</groupId>
       <artifactId>hive-serde</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.hive</groupId>
+      <groupId>com.linkedin.hive</groupId>
       <artifactId>hive-metastore</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.hive</groupId>
+      <groupId>com.linkedin.hive</groupId>
       <artifactId>hive-shims</artifactId>
       <version>${project.version}</version>
     </dependency>
@@ -148,21 +148,21 @@
               <shadedClassifierName>${hive.jdbc.driver.classifier}</shadedClassifierName>
               <filters>
                 <filter>
-                  <artifact>org.apache.hive.shims:hive-shims-common</artifact>
+                  <artifact>com.linkedin.hive.shims:hive-shims-common</artifact>
                   <includes>
                     <include>org/apache/hadoop/hive/shims/*</include>
                     <include>org/apache/hadoop/hive/thrift/*</include>
                   </includes>
                 </filter>
                 <filter>
-                  <artifact>org.apache.hive.shims:hive-shims-common-secure</artifact>
+                  <artifact>com.linkedin.hive.shims:hive-shims-common-secure</artifact>
                   <includes>
                     <include>org/apache/hadoop/hive/thrift/*</include>
                     <include>org/apache/hadoop/hive/thrift/client/*</include>
                   </includes>
                 </filter>
                 <filter>
-                  <artifact>org.apache.hive.shims:hive-shims-0.23</artifact>
+                  <artifact>com.linkedin.hive.shims:hive-shims-0.23</artifact>
                   <includes>
                     <include>org/apache/hadoop/hive/thrift/*</include>
                   </includes>
@@ -186,7 +186,7 @@
                 <excludes>
                   <exclude>org.apache.commons:commons-compress</exclude>
                   <exclude>org.apache.hadoop:*</exclude>
-                  <exclude>org.apache.hive:hive-ant</exclude>
+                  <exclude>com.linkedin.hive:hive-ant</exclude>
                   <exclude>org.apache.ant:*</exclude>
                   <exclude>junit:*</exclude>
                   <exclude>org.hamcrest:*</exclude>
