@@ -17,7 +17,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.apache.hive</groupId>
+    <groupId>com.linkedin.hive</groupId>
     <artifactId>hive</artifactId>
     <version>1.0.1</version>
     <relativePath>../pom.xml</relativePath>
@@ -37,27 +37,27 @@
     <!-- intra-project -->
     <!-- used for vector code-gen -->
     <dependency>
-      <groupId>org.apache.hive</groupId>
+      <groupId>com.linkedin.hive</groupId>
       <artifactId>hive-ant</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.hive</groupId>
+      <groupId>com.linkedin.hive</groupId>
       <artifactId>hive-common</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.hive</groupId>
+      <groupId>com.linkedin.hive</groupId>
       <artifactId>hive-metastore</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.hive</groupId>
+      <groupId>com.linkedin.hive</groupId>
       <artifactId>hive-serde</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.hive</groupId>
+      <groupId>com.linkedin.hive</groupId>
       <artifactId>hive-shims</artifactId>
       <version>${project.version}</version>
     </dependency>
@@ -615,9 +615,9 @@
               <artifactSet>
                 <includes>
                   <!-- order is meant to be the same as the ant build -->
-                  <include>org.apache.hive:hive-common</include>
-                  <include>org.apache.hive:hive-exec</include>
-                  <include>org.apache.hive:hive-serde</include>
+                  <include>com.linkedin.hive:hive-common</include>
+                  <include>com.linkedin.hive:hive-exec</include>
+                  <include>com.linkedin.hive:hive-serde</include>
                   <include>com.esotericsoftware.kryo:kryo</include>
                   <include>com.twitter:parquet-hadoop-bundle</include>
                   <include>org.apache.thrift:libthrift</include>
@@ -627,12 +627,12 @@
                   <include>org.json:json</include>
                   <include>org.apache.avro:avro</include>
                   <include>org.apache.avro:avro-mapred</include>
-                  <include>org.apache.hive.shims:hive-shims-0.20</include>
-                  <include>org.apache.hive.shims:hive-shims-0.20S</include>
-                  <include>org.apache.hive.shims:hive-shims-0.23</include>
-                  <include>org.apache.hive.shims:hive-shims-0.23</include>
-                  <include>org.apache.hive.shims:hive-shims-common</include>
-                  <include>org.apache.hive.shims:hive-shims-common-secure</include>
+                  <include>com.linkedin.hive.shims:hive-shims-0.20</include>
+                  <include>com.linkedin.hive.shims:hive-shims-0.20S</include>
+                  <include>com.linkedin.hive.shims:hive-shims-0.23</include>
+                  <include>com.linkedin.hive.shims:hive-shims-0.23</include>
+                  <include>com.linkedin.hive.shims:hive-shims-common</include>
+                  <include>com.linkedin.hive.shims:hive-shims-common-secure</include>
                   <include>com.googlecode.javaewah:JavaEWAH</include>
                   <include>javolution:javolution</include>
                   <include>com.google.protobuf:protobuf-java</include>
@@ -646,7 +646,7 @@
               <relocations>
                 <relocation>
                   <pattern>com.esotericsoftware</pattern>
-                  <shadedPattern>org.apache.hive.com.esotericsoftware</shadedPattern>
+                  <shadedPattern>com.linkedin.hive.com.esotericsoftware</shadedPattern>
                 </relocation>
               </relocations>
             </configuration>
