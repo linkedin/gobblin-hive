@@ -14,11 +14,6 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.apache</groupId>
-    <artifactId>apache</artifactId>
-    <version>14</version>
-  </parent>
   <groupId>com.linkedin.hive</groupId>
   <artifactId>hive</artifactId>
   <version>1.0.1-avro</version>
@@ -165,6 +160,15 @@
     <felix.version>2.4.0</felix.version>
     <curator.version>2.6.0</curator.version>
   </properties>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>jfrog-plugins-release</id>
+      <name>plugins-release</name>
+      <url>https://oss.jfrog.org/artifactory/plugins-release</url>
+    </pluginRepository>
+  </pluginRepositories>
+
 
   <repositories>
     <repository>
@@ -909,6 +913,34 @@
 	    <exclude>**/sit</exclude>
 	  </excludes>
 	</configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jfrog.buildinfo</groupId>
+        <artifactId>artifactory-maven-plugin</artifactId>
+        <version>3.2.3</version>
+        <executions>
+          <execution>
+            <id>build-info</id>
+            <goals>
+              <goal>publish</goal>
+            </goals>
+            <configuration>
+              <artifactory>
+                <includeEnvVars>true</includeEnvVars>
+                <envVarsExcludePatterns>*password*,*secret*,*key*,*token*,*passphrase*</envVarsExcludePatterns>
+                <timeoutSec>60</timeoutSec>
+              </artifactory>
+              <publisher>
+                <contextUrl>https://linkedin.jfrog.io/artifactory/</contextUrl>
+                <username>${username}</username>
+                <password>${password}</password>
+                <excludePatterns>*-tests.jar</excludePatterns>
+                <repoKey>gobblin-hive</repoKey>
+                <snapshotRepoKey>gobblin-hive</snapshotRepoKey>
+              </publisher>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
